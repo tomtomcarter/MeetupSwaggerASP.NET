@@ -2,7 +2,7 @@
 {
     public class Location
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string DisplayName { get; set; }
         
         public string AddressLine1 { get; set; }
