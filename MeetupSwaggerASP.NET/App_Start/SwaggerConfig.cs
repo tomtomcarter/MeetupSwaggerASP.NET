@@ -255,7 +255,7 @@ namespace MeetupSwaggerASP.NET
 
         private static string GetXmlCommentsPath()
         {
-            return $@"{AppDomain.CurrentDomain.BaseDirectory}\SwaggerXmlComments.xml";
+            return $@"{AppDomain.CurrentDomain.BaseDirectory}\bin\SwaggerXmlComments.xml";
         }
     }
 }
