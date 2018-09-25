@@ -83,11 +83,25 @@ namespace MeetupSwaggerASP.NET.Controllers
 
             return Ok(result);
         }
+                
+        [HttpPost]
+        public async Task<IHttpActionResult> Post(Country value)
+        {
+            try
+            {
+                await _countryService.AddOrUpdateCountry(value);
+            }
+            catch (ArgumentNullException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return InternalServerError(e);
+            }
 
-        //// POST: api/Country
-        //public void Post([FromBody]string value)
-        //{
-        //}
+            return Ok();
+        }
 
         //// PUT: api/Country/5
         //public void Put(int id, [FromBody]string value)

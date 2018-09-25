@@ -62,6 +62,7 @@ namespace MeetupSwaggerASP.NET.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<ICountryService>().To<CountryService>();
+            kernel.Bind<ILocationService>().To<LocationService>();
         }        
     }
 }
