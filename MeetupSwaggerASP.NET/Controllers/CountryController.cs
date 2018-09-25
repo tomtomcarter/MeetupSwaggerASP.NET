@@ -1,9 +1,12 @@
 ﻿using MeetupSwaggerASP.NET.Models;
 using MeetupSwaggerASP.NET.Service;
+using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace MeetupSwaggerASP.NET.Controllers
 {
@@ -15,15 +18,23 @@ namespace MeetupSwaggerASP.NET.Controllers
     {
         private readonly ICountryService _countryService;
 
+        /// <summary>
+        /// Main endpoint to interract with countries.
+        /// </summary>
+        /// <param name="countryService"></param>
+        /// <remarks>Not the most sexy API endpoint, but hey, good enough for a demo !</remarks>
         public CountryController(ICountryService countryService)
         {
             this._countryService = countryService;
         }
 
         /// <summary>
-        /// Gets this instance.
+        /// Gets the list of all available countries.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of all countries.</returns>
+        /// <remarks>Be aware the countries on Mars are note listed yet. Please update this backend API once Space X has achieved the massive leap in BFR production rate !</remarks>
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<Country>))]
         public async Task<IHttpActionResult> Get()
         {
             IEnumerable<Country> result = null;
@@ -37,19 +48,21 @@ namespace MeetupSwaggerASP.NET.Controllers
                 return InternalServerError(e);
             }
 
-            if (result == null)
-            {
-                return NotFound();
-            }
-
             return Ok(result);
         }
 
         /// <summary>
-        /// Gets the specified identifier.
+        /// Gets the country corresponding to the provided identifier.
         /// </summary>
-        /// <param name="id">The identifier.</param>
-        /// <returns></returns>
+        /// <param name="id">The country identifier.</param>
+        /// <returns>A country with the provided identifier.</returns>
+        /// <remarks>Don't think I have coded more than 3 Ids.</remarks>
+        /// <example>1 will give you France. Try 2 and 3 for fun.</example>
+        [HttpGet]
+        [ResponseType(typeof(IEnumerable<Country>))]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.BadRequest, "Please provide a country id parameter as an integer")]
+        [SwaggerResponse(HttpStatusCode.NotFound, "Requested country not found.")]
         public async Task<IHttpActionResult> Get(int id)
         {
             Country result = null;
