@@ -53,7 +53,7 @@ namespace MeetupSwaggerASP.NET.Controllers
         }
 
         [HttpPost]
-        [ResponseType(null)]
+        [ResponseType(typeof(Location))]
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.Conflict, "Most likely the provided location already exists")]
         [SwaggerResponse(HttpStatusCode.BadRequest, "Please provide a country id parameter as an integer")]
@@ -61,7 +61,8 @@ namespace MeetupSwaggerASP.NET.Controllers
         {
             try
             {
-                await _locationService.AddOrUpdate(value);
+                var id = await _locationService.AddOrUpdate(value);
+                value.Id = id;
             }
             catch (ArgumentNullException e)
             {
@@ -77,7 +78,7 @@ namespace MeetupSwaggerASP.NET.Controllers
                 return InternalServerError(e);
             }
 
-            return Ok();
+            return Ok(value);
         }
     }
 }

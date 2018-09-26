@@ -32,7 +32,7 @@ namespace MeetupSwaggerASP.NET.Controllers
         /// Gets the list of all available countries.
         /// </summary>
         /// <returns>List of all countries.</returns>
-        /// <remarks>Be aware the countries on Mars are note listed yet. Please update this backend API once Space X has achieved the massive leap in BFR production rate !</remarks>
+        /// <remarks>Be aware the countries on Mars are not listed yet. Please update this backend API once Space X has achieved the massive leap in BFR production rate !</remarks>
         [HttpGet]
         [ResponseType(typeof(IEnumerable<Country>))]
         public async Task<IHttpActionResult> Get()
@@ -59,7 +59,7 @@ namespace MeetupSwaggerASP.NET.Controllers
         /// <remarks>Don't think I have coded more than 3 Ids.</remarks>
         /// <example>1 will give you France. Try 2 and 3 for fun.</example>
         [HttpGet]
-        [ResponseType(typeof(IEnumerable<Country>))]
+        [ResponseType(typeof(Country))]
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.BadRequest, "Please provide a country id parameter as an integer")]
         [SwaggerResponse(HttpStatusCode.NotFound, "Requested country not found.")]
