@@ -1,12 +1,7 @@
-﻿using MeetupSwaggerASP.NET.Models;
-using MeetupSwaggerASP.NET.Service;
-using Swashbuckle.Swagger.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace MeetupSwaggerASP.NET.Controllers
 {
@@ -83,7 +78,7 @@ namespace MeetupSwaggerASP.NET.Controllers
 
             return Ok(result);
         }
-                
+
         [HttpPost]
         public async Task<IHttpActionResult> Post(Country value)
         {

@@ -1,13 +1,7 @@
-﻿using MeetupSwaggerASP.NET.Models;
-using MeetupSwaggerASP.NET.Service;
-using Swashbuckle.Swagger.Annotations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Description;
 
 namespace MeetupSwaggerASP.NET.Controllers
 {

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
-using MeetupSwaggerASP.NET.App_Start;
-using MeetupSwaggerASP.NET.Models;
 
 namespace MeetupSwaggerASP.NET.Service
 {

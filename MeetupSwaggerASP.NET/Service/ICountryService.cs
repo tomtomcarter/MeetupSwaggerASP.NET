@@ -1,5 +1,4 @@
-﻿using MeetupSwaggerASP.NET.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MeetupSwaggerASP.NET.Service

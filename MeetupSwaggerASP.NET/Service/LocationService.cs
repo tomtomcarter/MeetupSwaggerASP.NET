@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
-using MeetupSwaggerASP.NET.App_Start;
-using MeetupSwaggerASP.NET.Models;
 
 namespace MeetupSwaggerASP.NET.Service
 {
@@ -42,7 +39,5 @@ namespace MeetupSwaggerASP.NET.Service
         {
             return await Task.FromResult(ViewModelStore.Locations.Where(c => c.Id == id).FirstOrDefault());
         }
-
-
     }
 }

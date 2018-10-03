@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MeetupSwaggerASP.NET.Controllers
+﻿namespace MeetupSwaggerASP.NET.Controllers
 {
     public class HomeController : Controller
     {
